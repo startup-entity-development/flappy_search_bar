@@ -31,7 +31,8 @@ class SearchBarController<T> {
   CancelableOperation _cancelableOperation;
   int minimumChars;
 
-  void setTextController(TextEditingController _searchQueryController, minimunChars) {
+  void setTextController(
+      TextEditingController _searchQueryController, minimunChars) {
     this._searchQueryController = _searchQueryController;
     this.minimumChars = minimunChars;
   }
@@ -268,7 +269,8 @@ class _SearchBarState<T> extends State<SearchBar<T>>
     searchBarController =
         widget.searchBarController ?? SearchBarController<T>();
     searchBarController.setListener(this);
-    searchBarController.setTextController(_searchQueryController, widget.minimumChars);
+    searchBarController.setTextController(
+        _searchQueryController, widget.minimumChars);
   }
 
   @override
@@ -399,6 +401,7 @@ class _SearchBarState<T> extends State<SearchBar<T>>
                           controller: _searchQueryController,
                           onChanged: _onTextChanged,
                           style: widget.textStyle,
+                          cursorColor: widget.searchBarStyle.cursorColor,
                           decoration: InputDecoration(
                             icon: widget.icon,
                             border: InputBorder.none,
